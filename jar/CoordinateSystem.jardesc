@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="JHelpCoordinateSystem/jar/CoordinateSystem.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/JHelpCoordinateSystem/jar/CoordinateSystem.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" mainClassHandleIdentifier="=JHelpCoordinateSystem/src&lt;jhelp.coordinate.system{MainCoordinateSystem.java[MainCoordinateSystem" manifestLocation="/JHelpJoystick/jar/JoysitickMosue.manifest" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <javaElement handleIdentifier="=JHelpGUI/resources"/>
+        <javaElement handleIdentifier="=JHelpCoordinateSystem/src"/>
+        <javaElement handleIdentifier="=JHelpUtil/src"/>
+        <javaElement handleIdentifier="=JHelpGUI/src"/>
+    </selectedElements>
+</jardesc>

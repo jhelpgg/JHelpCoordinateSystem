@@ -1,0 +1,10 @@
+<Texts>
+	<!-- Title of the tool example -->
+	<Text key="CoordinateSystemFrame.title">JHelp repère orthonormal</Text>
+	<!-- Title of unit size settings -->
+	<Text key="UnitSizeComponent.title">Unité</Text>
+	<!-- Title of point size settings -->
+	<Text key="PointSizeComponent.title">Épaisseur</Text>
+	<!-- Title of origin settings -->
+	<Text key="OriginComponent.title">Origine</Text>
+</Texts>

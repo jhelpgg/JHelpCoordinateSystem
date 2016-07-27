@@ -1,0 +1,10 @@
+<Texts>
+	<!-- Title of the tool example -->
+	<Text key="CoordinateSystemFrame.title">JHelp coordinate system</Text>
+	<!-- Title of unit size settings -->
+	<Text key="UnitSizeComponent.title">Unit</Text>
+	<!-- Title of point size settings -->
+	<Text key="PointSizeComponent.title">Thick</Text>
+	<!-- Title of origin settings -->
+	<Text key="OriginComponent.title">Origin</Text>
+</Texts>
