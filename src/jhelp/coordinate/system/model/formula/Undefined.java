@@ -15,7 +15,7 @@ public class Undefined
     *
     * @return Created undefined
     */
-   public static final Undefined UNDEFINED()
+   public static Undefined UNDEFINED()
    {
       return new Undefined();
    }

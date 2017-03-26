@@ -521,7 +521,7 @@ public class CoordinateSystem
     */
    public int convertSystemToScreenX(final double x)
    {
-      if(Double.isFinite(x) == true)
+      if(Double.isFinite(x))
       {
          return (int) ((x * this.unitSize) + this.originX);
       }
@@ -540,7 +540,7 @@ public class CoordinateSystem
     */
    public int convertSystemToScreenY(final double y)
    {
-      if(Double.isFinite(y) == true)
+      if(Double.isFinite(y))
       {
          return (int) (this.originY - (y * this.unitSize));
       }
@@ -613,7 +613,7 @@ public class CoordinateSystem
          removed = this.equations.remove(equationDescription);
       }
 
-      if(removed == true)
+      if(removed)
       {
          this.updateImage();
       }
@@ -682,7 +682,7 @@ public class CoordinateSystem
    {
       unitSize = Math.max(1, unitSize);
 
-      if(UtilMath.equals(this.unitSize, unitSize) == true)
+      if(UtilMath.equals(this.unitSize, unitSize))
       {
          return;
       }

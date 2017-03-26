@@ -120,7 +120,7 @@ public class Number
          this.value = Double.parseDouble(value);
          this.representation = value;
       }
-      catch(final Exception exception)
+      catch(final Exception ignored)
       {
       }
    }

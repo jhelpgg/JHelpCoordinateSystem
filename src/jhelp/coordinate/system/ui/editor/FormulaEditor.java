@@ -194,7 +194,7 @@ public class FormulaEditor
       {
          action = actionMap.get(key);
 
-         if((action != null) && ((action instanceof ActionButton) == true))
+         if((action != null) && ((action instanceof ActionButton)))
          {
             actionButton = (ActionButton) action;
 
@@ -247,7 +247,7 @@ public class FormulaEditor
     */
    void appendBinary(final Binary binary)
    {
-      if(this.canAppendBinary() == false)
+      if(!this.canAppendBinary())
       {
          return;
       }
@@ -264,7 +264,7 @@ public class FormulaEditor
     */
    void appendComma()
    {
-      if(this.canAppendComma() == false)
+      if(!this.canAppendComma())
       {
          return;
       }
@@ -296,7 +296,7 @@ public class FormulaEditor
     */
    void appendFixed(final Fixed fixed)
    {
-      if(this.canAppendUnaryFixedVariable() == false)
+      if(!this.canAppendUnaryFixedVariable())
       {
          return;
       }
@@ -316,7 +316,7 @@ public class FormulaEditor
     */
    void appendNumber(final int number)
    {
-      if(this.canAppendNumber() == false)
+      if(!this.canAppendNumber())
       {
          return;
       }
@@ -347,7 +347,7 @@ public class FormulaEditor
     */
    void appendUnary(final Unary unary)
    {
-      if(this.canAppendUnaryFixedVariable() == false)
+      if(!this.canAppendUnaryFixedVariable())
       {
          return;
       }
@@ -364,7 +364,7 @@ public class FormulaEditor
     */
    void appendVariable()
    {
-      if(this.canAppendUnaryFixedVariable() == false)
+      if(!this.canAppendUnaryFixedVariable())
       {
          return;
       }
@@ -393,7 +393,7 @@ public class FormulaEditor
     */
    boolean canAppendComma()
    {
-      return (this.canAppendNumber() == true) && (this.hasComma == false);
+      return (this.canAppendNumber()) && (!this.hasComma);
    }
 
    /**
@@ -435,7 +435,7 @@ public class FormulaEditor
     */
    boolean canValidate()
    {
-      return this.formula.containsUndefined() == false;
+      return !this.formula.containsUndefined();
    }
 
    /**
@@ -523,7 +523,7 @@ public class FormulaEditor
     */
    void doEscape()
    {
-      if(this.canEscape() == false)
+      if(!this.canEscape())
       {
          return;
       }
@@ -538,7 +538,7 @@ public class FormulaEditor
     */
    void doValidate()
    {
-      if(this.canValidate() == false)
+      if(!this.canValidate())
       {
          return;
       }

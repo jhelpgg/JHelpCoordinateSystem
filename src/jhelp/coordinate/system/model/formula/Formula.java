@@ -149,7 +149,8 @@ public abstract class Formula
          return false;
       }
 
-      if(this.getClass().equals(object.getClass()) == false)
+      if(!this.getClass()
+              .equals(object.getClass()))
       {
          return false;
       }
@@ -206,7 +207,7 @@ public abstract class Formula
     */
    public Formula replace(final Formula searched, final Formula replace)
    {
-      if(this.equals(searched) == true)
+      if(this.equals(searched))
       {
          replace.parent = this.parent;
          return replace;
@@ -244,7 +245,7 @@ public abstract class Formula
     */
    public Formula search(final Formula searched)
    {
-      if(this.equals(searched) == true)
+      if(this.equals(searched))
       {
          return this;
       }

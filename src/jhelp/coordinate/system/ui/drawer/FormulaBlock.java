@@ -193,7 +193,7 @@ public class FormulaBlock
       int xParenthisisOpen = 0;
       int xParenthesisClose = 0;
 
-      if(this.selected == true)
+      if(this.selected)
       {
          xSelection = x;
          ySelection = y;
@@ -205,7 +205,7 @@ public class FormulaBlock
          y += 2;
       }
 
-      if(this.haveParenthesis == true)
+      if(this.haveParenthesis)
       {
          xParenthisisOpen = x;
          xParenthesisClose = -x - parenthesisSize;
@@ -223,10 +223,12 @@ public class FormulaBlock
       switch(this.blockType)
       {
          case FIRST_ABOVE:
-            width += mask.getWidth() + 1;
+             assert mask != null;
+             width += mask.getWidth() + 1;
             height += mask.getHeight();
 
-            width += imageFirst.getWidth();
+             assert imageFirst != null;
+             width += imageFirst.getWidth();
             height += imageFirst.getHeight() >> 1;
             y += imageFirst.getHeight() >> 1;
          break;
@@ -239,7 +241,8 @@ public class FormulaBlock
                more = mask.getHeight();
             }
 
-            width += imageFirst.getWidth();
+             assert imageFirst != null;
+             width += imageFirst.getWidth();
             height += Math.max(imageFirst.getHeight(), more);
          break;
          case NO_FIRST_NO_SECOND:
@@ -250,16 +253,23 @@ public class FormulaBlock
             }
          break;
          case SECOND_ABOVE:
-            width += imageFirst.getWidth() + 1 + imageSecond.getWidth();
+             assert imageSecond != null;
+             assert imageFirst != null;
+             width += imageFirst.getWidth() + 1 + imageSecond.getWidth();
             height += imageFirst.getHeight() + (imageSecond.getHeight() >> 1);
             y += imageSecond.getHeight() >> 1;
          break;
          case SECOND_ASIDE:
-            width += imageFirst.getWidth() + 1 + mask.getWidth() + 1 + imageSecond.getWidth();
+             assert imageSecond != null;
+             assert mask != null;
+             assert imageFirst != null;
+             width += imageFirst.getWidth() + 1 + mask.getWidth() + 1 + imageSecond.getWidth();
             height += UtilMath.maxIntegers(imageFirst.getHeight(), mask.getHeight(), imageSecond.getHeight());
          break;
          case SECOND_BELOW:
-            width += Math.max(imageFirst.getWidth(), imageSecond.getWidth());
+             assert imageSecond != null;
+             assert imageFirst != null;
+             width += Math.max(imageFirst.getWidth(), imageSecond.getWidth());
             height += imageFirst.getHeight() + 3 + imageSecond.getHeight();
          break;
          default:
@@ -269,12 +279,12 @@ public class FormulaBlock
       final JHelpImage image = new JHelpImage(width, height, 0xFFFFFFFF);
       image.startDrawMode();
 
-      if(this.selected == true)
+      if(this.selected)
       {
          image.drawRectangle(xSelection, ySelection, width + limitXSection, height + limitYSecletion, 0xFFFF0000);
       }
 
-      if(this.haveParenthesis == true)
+      if(this.haveParenthesis)
       {
          image.drawShape(new Arc2D.Double(xParenthisisOpen, ySelection, parenthesisSize, height + limitYSecletion, 90, 180, Arc2D.OPEN), 0xFF000000);
          image.drawShape(new Arc2D.Double(width + xParenthesisClose, ySelection, parenthesisSize, height + limitYSecletion, 90, -180, Arc2D.OPEN), 0xFF000000);
@@ -284,8 +294,10 @@ public class FormulaBlock
       {
          case FIRST_ABOVE:
             image.drawImage(x, y, mask);
-            x += mask.getWidth() + 1;
-            y -= imageFirst.getHeight() >> 1;
+             assert mask != null;
+             x += mask.getWidth() + 1;
+             assert imageFirst != null;
+             y -= imageFirst.getHeight() >> 1;
             image.drawImage(x, y, imageFirst);
          break;
          case FIRST_NORMAL:
@@ -302,23 +314,30 @@ public class FormulaBlock
          break;
          case SECOND_ABOVE:
             image.drawImage(x, y, imageFirst);
-            x += imageFirst.getWidth() + 1;
-            y -= imageSecond.getHeight() >> 1;
+             assert imageFirst != null;
+             x += imageFirst.getWidth() + 1;
+             assert imageSecond != null;
+             y -= imageSecond.getHeight() >> 1;
             image.drawImage(x, y, imageSecond);
          break;
          case SECOND_ASIDE:
-            image.drawImage(x, y + ((height - imageFirst.getHeight()) >> 1), imageFirst);
+             assert imageFirst != null;
+             image.drawImage(x, y + ((height - imageFirst.getHeight()) >> 1), imageFirst);
             x += imageFirst.getWidth() + 1;
-            image.drawImage(x, y + ((height - mask.getHeight()) >> 1), mask);
+             assert mask != null;
+             image.drawImage(x, y + ((height - mask.getHeight()) >> 1), mask);
             x += mask.getWidth() + 1;
-            image.drawImage(x, y + ((height - imageSecond.getHeight()) >> 1), imageSecond);
+             assert imageSecond != null;
+             image.drawImage(x, y + ((height - imageSecond.getHeight()) >> 1), imageSecond);
          break;
          case SECOND_BELOW:
-            image.drawImage(x + ((width - imageFirst.getWidth()) >> 1), y, imageFirst);
+             assert imageFirst != null;
+             image.drawImage(x + ((width - imageFirst.getWidth()) >> 1), y, imageFirst);
             y += imageFirst.getHeight() + 1;
             image.drawHorizontalLine(x, x + width, y, 0xFF000000);
             y += 2;
-            image.drawImage(x + ((width - imageSecond.getWidth()) >> 1), y, imageSecond);
+             assert imageSecond != null;
+             image.drawImage(x + ((width - imageSecond.getWidth()) >> 1), y, imageSecond);
          break;
          default:
          break;

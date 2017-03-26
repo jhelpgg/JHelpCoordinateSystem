@@ -132,12 +132,12 @@ public class UtilCoordinateSystem
       {
          final jhelp.util.math.formal.Constant constant = (jhelp.util.math.formal.Constant) function;
 
-         if(jhelp.util.math.formal.Constant.PI.equals(constant) == true)
+         if(jhelp.util.math.formal.Constant.PI.equals(constant))
          {
             return Fixed.PI();
          }
 
-         if(jhelp.util.math.formal.Constant.E.equals(constant) == true)
+         if(jhelp.util.math.formal.Constant.E.equals(constant))
          {
             return Fixed.E();
          }
@@ -269,7 +269,7 @@ public class UtilCoordinateSystem
     */
    public static Function formulaToFunction(final Formula formula)
    {
-      if(formula.containsUndefined() == true)
+      if(formula.containsUndefined())
       {
          throw new IllegalArgumentException("Given formula contains at least an UNDEFINED, so can't be converted");
       }

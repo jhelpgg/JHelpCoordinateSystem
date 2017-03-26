@@ -45,14 +45,14 @@ public abstract class Binary
       boolean parenthesis = (formulaNature == FormulaNature.BINARY) || (formulaNature == FormulaNature.BINARY_UPPER)
             || (formulaNature == FormulaNature.BYNARY_UNDER);
 
-      if(parenthesis == true)
+      if(parenthesis)
       {
          stringBuilder.append('(');
       }
 
       this.first.appendInString(stringBuilder);
 
-      if(parenthesis == true)
+      if(parenthesis)
       {
          stringBuilder.append(')');
       }
@@ -62,14 +62,14 @@ public abstract class Binary
       formulaNature = this.second.getType().getNature();
       parenthesis = (formulaNature == FormulaNature.BINARY) || (formulaNature == FormulaNature.BINARY_UPPER) || (formulaNature == FormulaNature.BYNARY_UNDER);
 
-      if(parenthesis == true)
+      if(parenthesis)
       {
          stringBuilder.append('(');
       }
 
       this.second.appendInString(stringBuilder);
 
-      if(parenthesis == true)
+      if(parenthesis)
       {
          stringBuilder.append(')');
       }
@@ -116,7 +116,7 @@ public abstract class Binary
    protected boolean equalsInternal(final Formula formula)
    {
       final Binary binary = (Binary) formula;
-      return (this.first.equalsInternal(binary.first) == true) && (this.second.equalsInternal(binary.second) == true);
+      return (this.first.equalsInternal(binary.first)) && (this.second.equalsInternal(binary.second));
    }
 
    /**
@@ -217,7 +217,7 @@ public abstract class Binary
    @Override
    public boolean containsUndefined()
    {
-      return (this.first.containsUndefined() == true) || (this.second.containsUndefined() == true);
+      return (this.first.containsUndefined()) || (this.second.containsUndefined());
    }
 
    /**

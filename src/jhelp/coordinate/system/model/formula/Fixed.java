@@ -15,7 +15,7 @@ public class Fixed
     *
     * @return New e
     */
-   public static final Fixed E()
+   public static Fixed E()
    {
       return new Fixed(FormulaType.E, Math.E, "e");
    }
@@ -25,7 +25,7 @@ public class Fixed
     *
     * @return New &pi;
     */
-   public static final Fixed PI()
+   public static Fixed PI()
    {
       return new Fixed(FormulaType.PI, Math.PI, "π");
    }
